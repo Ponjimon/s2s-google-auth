@@ -24,7 +24,6 @@
     "lint-staged"
   ],
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "node-fetch": "^2.1.1"
   },
   "engines": {
