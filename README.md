@@ -1,11 +1,15 @@
 ### Install
-This package is not on `npm` yet. You have to install it using this GitHub repository.
+`yarn add s2s-google-auth`
+
+or
+
+`npm install --save s2s-google-auth`
 
 ### Usage
 ```javascript
-import s2sGoogleAuth from 's2s-google-auth';
+import { requestTokenId } from 's2s-google-auth';
 
-s2sGoogleAuth(clientId, clientEmail, privateKey).then(jwt => {
+requestTokenId(clientId, clientEmail, privateKey).then(jwt => {
     console.log(jwt);
 });
 ```
