@@ -1,0 +1,19 @@
+# config files
+.prettierrc
+.editorconfig
+.gitignore
+.npmignore
+
+# folders
+coverage
+src
+test
+
+# markdown files
+
+# misc.
+jest.config.js
+tsconfig.json
+tsconfig.release.json
+tslint.json
+yarn.lock
