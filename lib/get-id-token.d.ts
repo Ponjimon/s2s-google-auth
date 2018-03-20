@@ -3,5 +3,4 @@ export interface IGoogleTokenResponse {
     error?: string;
     error_description?: string;
 }
-declare const getIdToken: (jwt: string) => Promise<IGoogleTokenResponse>;
-export default getIdToken;
+export default function getIdToken(jwt: string): Promise<IGoogleTokenResponse>;

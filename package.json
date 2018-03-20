@@ -1,5 +1,5 @@
 {
-  "name": "s2s-gogle-auth",
+  "name": "s2s-google-auth",
   "version": "1.0.0",
   "main": "lib",
   "license": "MIT",
