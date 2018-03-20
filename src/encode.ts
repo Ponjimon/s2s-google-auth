@@ -35,7 +35,7 @@ export function signSegments(
     return base64UrlEscape(b64str);
 }
 
-export default function encode(
+export function encode(
     payload: object,
     key: string,
     algorithm: string = 'HS256'

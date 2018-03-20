@@ -1,7 +1,7 @@
-import encode from './encode';
-import getIdToken from './get-id-token';
+import { encode } from './encode';
+import { getIdToken } from './get-id-token';
 
-export default async function requestIdToken(
+export async function requestIdToken(
     clientId: string,
     clientEmail: string,
     key: string

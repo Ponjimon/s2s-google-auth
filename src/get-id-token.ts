@@ -7,7 +7,7 @@ export interface IGoogleTokenResponse {
     error_description?: string;
 }
 
-export default function getIdToken(jwt: string): Promise<IGoogleTokenResponse> {
+export function getIdToken(jwt: string): Promise<IGoogleTokenResponse> {
     return nodeFetch
         .default('https://www.googleapis.com/oauth2/v4/token', {
             method: 'POST',
