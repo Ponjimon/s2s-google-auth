@@ -11,33 +11,35 @@ const algorithmMap: IAlgorithmMap = {
     RS256: 'RSA-SHA256',
 };
 
-export const base64UrlEscape = (str: string): string =>
-    str
+export function base64UrlEscape(str: string): string {
+    return str
         .replace(/\+/g, '-')
         .replace(/\//g, '_')
         .replace(/=/g, '');
+}
 
-export const base64UrlEncode = (str: string): string =>
-    base64UrlEscape(Buffer.from(str).toString('base64'));
+export function base64UrlEncode(str: string): string {
+    return base64UrlEscape(Buffer.from(str).toString('base64'));
+}
 
-export const signSegments = (
+export function signSegments(
     input: string,
     key: string,
     method: string
-): string => {
+): string {
     const b64str = crypto
         .createSign(method)
         .update(input)
         .sign(key, 'base64');
 
     return base64UrlEscape(b64str);
-};
+}
 
-const encode = (
+export default function encode(
     payload: object,
     key: string,
     algorithm: string = 'HS256'
-): string => {
+): string {
     if (
         typeof key !== 'string' ||
         (typeof key === 'string' && key.trim() === '')
@@ -63,6 +65,4 @@ const encode = (
     segments.push(signSegments(segments.join('.'), key, signingMethod));
 
     return segments.join('.');
-};
-
-export default encode;
+}

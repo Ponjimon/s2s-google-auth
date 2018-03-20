@@ -1,11 +1,11 @@
 import encode from './encode';
 import getIdToken from './get-id-token';
 
-const requestIdToken = async (
+export default async function requestIdToken(
     clientId: string,
     clientEmail: string,
     key: string
-): Promise<string> => {
+): Promise<string> {
     const now = Date.now() / 1000;
     const jwt = encode(
         {
@@ -30,6 +30,4 @@ const requestIdToken = async (
     }
 
     return result.id_token;
-};
-
-export default requestIdToken;
+}
