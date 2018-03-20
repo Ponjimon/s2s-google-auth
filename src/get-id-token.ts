@@ -1,7 +1,7 @@
 import * as nodeFetch from 'node-fetch';
 import * as querystring from 'querystring';
 
-interface IGoogleTokenResponse {
+export interface IGoogleTokenResponse {
     id_token?: string;
     error?: string;
     error_description?: string;

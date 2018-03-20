@@ -4,7 +4,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
     "importHelpers": false,
     "alwaysStrict": true,
     "sourceMap": true,
@@ -15,7 +14,8 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "declaration": true
   },
   "include": [
     "src/**/*",
