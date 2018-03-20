@@ -1,13 +1,14 @@
 {
   "name": "s2s-google-auth",
   "version": "1.0.0",
-  "main": "lib",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "license": "MIT",
   "scripts": {
     "prettier:base": "yarn run prettier --parser typescript",
     "prettier:check": "yarn run prettier:base -l \"./src/**/*.ts\"",
     "prettier:write": "yarn run prettier:base --write \"./src/**/*.ts\"",
-    "clean": "rimraf coverage build tmp",
+    "clean": "rimraf coverage lib tmp",
     "build": "tsc -p tsconfig.release.json",
     "watch": "tsc -w -p tsconfig.release.json",
     "lint": "tslint -t stylish --project \"tsconfig.json\"",
@@ -15,7 +16,8 @@
     "test": "npm run test-only",
     "test-only": "jest --coverage",
     "test:watch": "jest --watch",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prebuild": "npm run clean"
   },
   "pre-commit": [
     "lint-staged",
