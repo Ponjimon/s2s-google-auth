@@ -6,7 +6,6 @@ const requestIdToken = async (
     clientEmail: string,
     key: string
 ): Promise<string> => {
-    // test
     const now = Date.now() / 1000;
     const jwt = encode(
         {
