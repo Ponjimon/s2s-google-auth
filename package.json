@@ -1,0 +1,119 @@
+{
+  "name": "s2s-gogle-auth",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier --write \"src/**/*.{js,json,css,md}\"",
+    "build": "babel -d ./lib ./src",
+    "lint-staged": "lint-staged"
+  },
+  "pre-commit": [
+    "lint-staged",
+    "build"
+  ],
+  "dependencies": {
+    "node-fetch": "^2.1.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,css,md}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-0"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "tabWidth": 4
+        }
+      ],
+      "function-paren-newline": "off",
+      "comma-dangle": "off",
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "object-shorthand": "off",
+      "no-plusplus": "off",
+      "no-buffer-constructor": "off",
+      "no-restricted-properties": "off",
+      "no-param-reassign": "off",
+      "no-await-in-loop": "off",
+      "prefer-destructuring": "off",
+      "no-mixed-operators": "off",
+      "no-use-before-define": [
+        "error",
+        {
+          "functions": false,
+          "classes": true
+        }
+      ],
+      "space-before-function-paren": [
+        2,
+        {
+          "anonymous": "always",
+          "named": "never"
+        }
+      ],
+      "no-console": "off",
+      "object-curly-newline": "off",
+      "indent": [
+        2,
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error'",
+        {
+          "devDependencies": true
+        }
+      ],
+      "import/no-named-as-default": 0,
+      "no-prototype-builtins": 0,
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allowAfterThis": true
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.11.1"
+  }
+}
