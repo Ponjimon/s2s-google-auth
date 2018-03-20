@@ -1,7 +1,7 @@
 {
   "name": "s2s-gogle-auth",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "lib",
   "license": "MIT",
   "scripts": {
     "prettier:base": "yarn run prettier --parser typescript",
