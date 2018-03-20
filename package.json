@@ -9,7 +9,7 @@
     "prettier:check": "yarn run prettier:base -l \"./src/**/*.ts\"",
     "prettier:write": "yarn run prettier:base --write \"./src/**/*.ts\"",
     "clean": "rimraf coverage lib tmp",
-    "build": "tsc -p tsconfig.release.json",
+    "build": "tsc -p tsconfig.release.json && git add lib/",
     "watch": "tsc -w -p tsconfig.release.json",
     "lint": "tslint -t stylish --project \"tsconfig.json\"",
     "pretest": "npm run lint",
