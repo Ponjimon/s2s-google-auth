@@ -4,8 +4,17 @@
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
-    "prettier": "prettier --write \"src/**/*.{js,json,css,md}\"",
-    "build": "babel -d ./lib ./src",
+    "prettier:base": "yarn run prettier --parser typescript",
+    "prettier:check": "yarn run prettier:base -l \"./src/**/*.ts\"",
+    "prettier:write": "yarn run prettier:base --write \"./src/**/*.ts\"",
+    "clean": "rimraf coverage build tmp",
+    "build": "tsc -p tsconfig.release.json",
+    "watch": "tsc -w -p tsconfig.release.json",
+    "lint": "tslint -t stylish --project \"tsconfig.json\"",
+    "pretest": "npm run lint",
+    "test": "npm run test-only",
+    "test-only": "jest --coverage",
+    "test:watch": "jest --watch",
     "lint-staged": "lint-staged"
   },
   "pre-commit": [
@@ -13,11 +22,15 @@
     "build"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "node-fetch": "^2.1.1"
   },
+  "engines": {
+    "node": ">= 8.9.0"
+  },
   "lint-staged": {
-    "src/**/*.{js,json,css,md}": [
-      "eslint --fix",
+    "src/**/*.ts": [
+      "yarn run prettier:write",
       "git add"
     ]
   },
@@ -101,9 +114,11 @@
     }
   },
   "devDependencies": {
+    "@types/jest": "^22.2.0",
+    "@types/node": "^9.4.7",
+    "@types/node-fetch": "^1.6.7",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.19.0",
@@ -112,8 +127,16 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
+    "jest": "^22.4.2",
     "lint-staged": "^7.0.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.2",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-microsoft-contrib": "^5.0.3",
+    "tsutils": "^2.22.2",
+    "typescript": "^2.7.2"
   }
 }

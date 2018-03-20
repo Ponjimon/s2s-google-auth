@@ -1,8 +1,11 @@
-import 'babel-polyfill';
 import encode from './encode';
 import getIdToken from './get-id-token';
 
-const requestIdToken = async (clientId, clientEmail, key) => {
+const requestIdToken = async (
+    clientId: string,
+    clientEmail: string,
+    key: string
+): Promise<string> => {// test
     const now = Date.now() / 1000;
     const jwt = encode(
         {
@@ -18,11 +21,11 @@ const requestIdToken = async (clientId, clientEmail, key) => {
 
     const result = await getIdToken(jwt);
 
-    if (result && result.error && result.error_description) {
+    if ('error_description' in result) {
         throw new Error(result.error_description);
     }
 
-    if (!result || (result && !result.id_token)) {
+    if (!('id_token' in result)) {
         throw new Error('Invalid result from google.');
     }
 
