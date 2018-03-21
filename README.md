@@ -7,9 +7,9 @@ or
 
 ### Usage
 ```javascript
-import { requestTokenId } from 's2s-google-auth';
+import { requestIdToken } from 's2s-google-auth';
 
-requestTokenId(clientId, clientEmail, privateKey).then(jwt => {
+requestIdToken(clientId, clientEmail, privateKey).then(jwt => {
     console.log(jwt);
 });
 ```
